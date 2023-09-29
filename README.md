@@ -84,11 +84,7 @@ To get the project up and running, follow these steps:
     php artisan test
     ```
    
-10. Generate API documentation
 
-   ```bash
-    php artisan scribe:generate
-    ```
 
 ## Usage
 
