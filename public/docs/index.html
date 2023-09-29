@@ -1,0 +1,1694 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var tryItOutBaseUrl = "http://127.0.0.1:8000";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.24.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.24.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-group" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="group">
+                    <a href="#group">Group</a>
+                </li>
+                                    <ul id="tocify-subheader-group" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="group-GETapi-groups">
+                                <a href="#group-GETapi-groups">List Groups</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-match" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="match">
+                    <a href="#match">Match</a>
+                </li>
+                                    <ul id="tocify-subheader-match" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="match-GETapi-matches">
+                                <a href="#match-GETapi-matches">List Matches</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="match-GETapi-match-reset">
+                                <a href="#match-GETapi-match-reset">Reset Matches</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-simulation" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="simulation">
+                    <a href="#simulation">Simulation</a>
+                </li>
+                                    <ul id="tocify-subheader-simulation" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="simulation-GETapi-simulation">
+                                <a href="#simulation-GETapi-simulation">Start Simulation</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: September 29, 2023</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<aside>
+    <strong>Base URL</strong>: <code>http://127.0.0.1:8000</code>
+</aside>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="group">Group</h1>
+
+    
+
+                                <h2 id="group-GETapi-groups">List Groups</h2>
+
+<p>
+</p>
+
+<p>Get the list of groups.</p>
+
+<span id="example-requests-GETapi-groups">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/groups" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/groups"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-groups">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: true,
+    &quot;message&quot;: &quot;The groups listed successfully.&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 4,
+            &quot;group_name&quot;: &quot;A&quot;,
+            &quot;teams&quot;: [
+                {
+                    &quot;id&quot;: 34,
+                    &quot;team_name&quot;: &quot;PSV Eindhoven&quot;,
+                    &quot;key&quot;: &quot;psv_eindhoven&quot;,
+                    &quot;strength&quot;: 83,
+                    &quot;country_code&quot;: &quot;nl&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 32,
+                            &quot;player_name&quot;: &quot;Mario G&ouml;tze&quot;,
+                            &quot;team_key&quot;: &quot;psv_eindhoven&quot;,
+                            &quot;strength&quot;: 83,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 33,
+                            &quot;player_name&quot;: &quot;Cody Gakpo&quot;,
+                            &quot;team_key&quot;: &quot;psv_eindhoven&quot;,
+                            &quot;strength&quot;: 82,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 35,
+                    &quot;team_name&quot;: &quot;Porto&quot;,
+                    &quot;key&quot;: &quot;porto&quot;,
+                    &quot;strength&quot;: 82,
+                    &quot;country_code&quot;: &quot;pt&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 34,
+                            &quot;player_name&quot;: &quot;Pepe&quot;,
+                            &quot;team_key&quot;: &quot;porto&quot;,
+                            &quot;strength&quot;: 83,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 35,
+                            &quot;player_name&quot;: &quot;Rafa Silva&quot;,
+                            &quot;team_key&quot;: &quot;porto&quot;,
+                            &quot;strength&quot;: 82,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 39,
+                    &quot;team_name&quot;: &quot;RB Leipzig&quot;,
+                    &quot;key&quot;: &quot;rb_leipzig&quot;,
+                    &quot;strength&quot;: 78,
+                    &quot;country_code&quot;: &quot;de&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 40,
+                            &quot;player_name&quot;: &quot;Ivan Savanovic&quot;,
+                            &quot;team_key&quot;: &quot;rb_leipzig&quot;,
+                            &quot;strength&quot;: 79,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 41,
+                            &quot;player_name&quot;: &quot;Patrik Schick&quot;,
+                            &quot;team_key&quot;: &quot;rb_leipzig&quot;,
+                            &quot;strength&quot;: 82,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 49,
+                    &quot;team_name&quot;: &quot;Dynamo Kyiv&quot;,
+                    &quot;key&quot;: &quot;dynamo_kyiv&quot;,
+                    &quot;strength&quot;: 70,
+                    &quot;country_code&quot;: &quot;ua&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 60,
+                            &quot;player_name&quot;: &quot;Viktor Tsygankov&quot;,
+                            &quot;team_key&quot;: &quot;dynamo_kyiv&quot;,
+                            &quot;strength&quot;: 82,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 61,
+                            &quot;player_name&quot;: &quot;Gerson Rodrigues&quot;,
+                            &quot;team_key&quot;: &quot;dynamo_kyiv&quot;,
+                            &quot;strength&quot;: 79,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                }
+            ],
+            &quot;matches&quot;: []
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;group_name&quot;: &quot;B&quot;,
+            &quot;teams&quot;: [
+                {
+                    &quot;id&quot;: 24,
+                    &quot;team_name&quot;: &quot;Borussia Dortmund&quot;,
+                    &quot;key&quot;: &quot;borussia_dortmund&quot;,
+                    &quot;strength&quot;: 90,
+                    &quot;country_code&quot;: &quot;de&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 14,
+                            &quot;player_name&quot;: &quot;Erling Haaland&quot;,
+                            &quot;team_key&quot;: &quot;borussia_dortmund&quot;,
+                            &quot;strength&quot;: 89,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 15,
+                            &quot;player_name&quot;: &quot;Jadon Sancho&quot;,
+                            &quot;team_key&quot;: &quot;borussia_dortmund&quot;,
+                            &quot;strength&quot;: 87,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 33,
+                    &quot;team_name&quot;: &quot;Ajax&quot;,
+                    &quot;key&quot;: &quot;ajax&quot;,
+                    &quot;strength&quot;: 84,
+                    &quot;country_code&quot;: &quot;nl&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 30,
+                            &quot;player_name&quot;: &quot;Dusan Tadić&quot;,
+                            &quot;team_key&quot;: &quot;ajax&quot;,
+                            &quot;strength&quot;: 84,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 31,
+                            &quot;player_name&quot;: &quot;Daley Blind&quot;,
+                            &quot;team_key&quot;: &quot;ajax&quot;,
+                            &quot;strength&quot;: 83,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 36,
+                    &quot;team_name&quot;: &quot;Benfica&quot;,
+                    &quot;key&quot;: &quot;benfica&quot;,
+                    &quot;strength&quot;: 81,
+                    &quot;country_code&quot;: &quot;pt&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 64,
+                            &quot;player_name&quot;: &quot;Di Maria&quot;,
+                            &quot;team_key&quot;: &quot;benfica&quot;,
+                            &quot;strength&quot;: 87,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 65,
+                            &quot;player_name&quot;: &quot;Rafa Silva&quot;,
+                            &quot;team_key&quot;: &quot;benfica&quot;,
+                            &quot;strength&quot;: 84,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 48,
+                    &quot;team_name&quot;: &quot;Shakhtar Donetsk&quot;,
+                    &quot;key&quot;: &quot;shakhtar_donetsk&quot;,
+                    &quot;strength&quot;: 71,
+                    &quot;country_code&quot;: &quot;ua&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 62,
+                            &quot;player_name&quot;: &quot;Taison&quot;,
+                            &quot;team_key&quot;: &quot;shakhtar_donetsk&quot;,
+                            &quot;strength&quot;: 84,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 63,
+                            &quot;player_name&quot;: &quot;Alan Patrick&quot;,
+                            &quot;team_key&quot;: &quot;shakhtar_donetsk&quot;,
+                            &quot;strength&quot;: 83,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                }
+            ],
+            &quot;matches&quot;: []
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;group_name&quot;: &quot;C&quot;,
+            &quot;teams&quot;: [
+                {
+                    &quot;id&quot;: 23,
+                    &quot;team_name&quot;: &quot;Bayern Munich&quot;,
+                    &quot;key&quot;: &quot;bayern_munich&quot;,
+                    &quot;strength&quot;: 92,
+                    &quot;country_code&quot;: &quot;de&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 12,
+                            &quot;player_name&quot;: &quot;Robert Lewandowski&quot;,
+                            &quot;team_key&quot;: &quot;bayern_munich&quot;,
+                            &quot;strength&quot;: 92,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 13,
+                            &quot;player_name&quot;: &quot;Thomas M&uuml;ller&quot;,
+                            &quot;team_key&quot;: &quot;bayern_munich&quot;,
+                            &quot;strength&quot;: 88,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 37,
+                    &quot;team_name&quot;: &quot;Zenit St. Petersburg&quot;,
+                    &quot;key&quot;: &quot;zenit_st_petersburg&quot;,
+                    &quot;strength&quot;: 80,
+                    &quot;country_code&quot;: &quot;ru&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 36,
+                            &quot;player_name&quot;: &quot;Artem Dzyuba&quot;,
+                            &quot;team_key&quot;: &quot;zenit_st_petersburg&quot;,
+                            &quot;strength&quot;: 81,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 37,
+                            &quot;player_name&quot;: &quot;Malcom&quot;,
+                            &quot;team_key&quot;: &quot;zenit_st_petersburg&quot;,
+                            &quot;strength&quot;: 80,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 47,
+                    &quot;team_name&quot;: &quot;Olympiacos&quot;,
+                    &quot;key&quot;: &quot;olympiacos&quot;,
+                    &quot;strength&quot;: 72,
+                    &quot;country_code&quot;: &quot;gr&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 56,
+                            &quot;player_name&quot;: &quot;Yann M&#039;Vila&quot;,
+                            &quot;team_key&quot;: &quot;olympiacos&quot;,
+                            &quot;strength&quot;: 76,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 57,
+                            &quot;player_name&quot;: &quot;Ahmed Hassan Koka&quot;,
+                            &quot;team_key&quot;: &quot;olympiacos&quot;,
+                            &quot;strength&quot;: 75,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 50,
+                    &quot;team_name&quot;: &quot;Celtic&quot;,
+                    &quot;key&quot;: &quot;celtic&quot;,
+                    &quot;strength&quot;: 69,
+                    &quot;country_code&quot;: &quot;sc&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 58,
+                            &quot;player_name&quot;: &quot;Odsonne Edouard&quot;,
+                            &quot;team_key&quot;: &quot;celtic&quot;,
+                            &quot;strength&quot;: 80,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 59,
+                            &quot;player_name&quot;: &quot;Callum McGregor&quot;,
+                            &quot;team_key&quot;: &quot;celtic&quot;,
+                            &quot;strength&quot;: 81,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                }
+            ],
+            &quot;matches&quot;: []
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;group_name&quot;: &quot;D&quot;,
+            &quot;teams&quot;: [
+                {
+                    &quot;id&quot;: 30,
+                    &quot;team_name&quot;: &quot;Sevilla&quot;,
+                    &quot;key&quot;: &quot;sevilla&quot;,
+                    &quot;strength&quot;: 87,
+                    &quot;country_code&quot;: &quot;es&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 24,
+                            &quot;player_name&quot;: &quot;Lucas Ocampos&quot;,
+                            &quot;team_key&quot;: &quot;sevilla&quot;,
+                            &quot;strength&quot;: 84,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 25,
+                            &quot;player_name&quot;: &quot;Jules Kound&eacute;&quot;,
+                            &quot;team_key&quot;: &quot;sevilla&quot;,
+                            &quot;strength&quot;: 83,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 38,
+                    &quot;team_name&quot;: &quot;CSKA Moscow&quot;,
+                    &quot;key&quot;: &quot;cska_moscow&quot;,
+                    &quot;strength&quot;: 79,
+                    &quot;country_code&quot;: &quot;ru&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 38,
+                            &quot;player_name&quot;: &quot;Fedor Chalov&quot;,
+                            &quot;team_key&quot;: &quot;cska_moscow&quot;,
+                            &quot;strength&quot;: 80,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 39,
+                            &quot;player_name&quot;: &quot;Igor Akinfeev&quot;,
+                            &quot;team_key&quot;: &quot;cska_moscow&quot;,
+                            &quot;strength&quot;: 81,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 40,
+                    &quot;team_name&quot;: &quot;Bayer Leverkusen&quot;,
+                    &quot;key&quot;: &quot;bayer_leverkusen&quot;,
+                    &quot;strength&quot;: 77,
+                    &quot;country_code&quot;: &quot;de&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 42,
+                            &quot;player_name&quot;: &quot;Moussa Diaby&quot;,
+                            &quot;team_key&quot;: &quot;bayer_leverkusen&quot;,
+                            &quot;strength&quot;: 78,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 43,
+                            &quot;player_name&quot;: &quot;Kerem Demirbay&quot;,
+                            &quot;team_key&quot;: &quot;bayer_leverkusen&quot;,
+                            &quot;strength&quot;: 80,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 41,
+                    &quot;team_name&quot;: &quot;Napoli&quot;,
+                    &quot;key&quot;: &quot;napoli&quot;,
+                    &quot;strength&quot;: 76,
+                    &quot;country_code&quot;: &quot;it&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 44,
+                            &quot;player_name&quot;: &quot;Lorenzo Insigne&quot;,
+                            &quot;team_key&quot;: &quot;napoli&quot;,
+                            &quot;strength&quot;: 85,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 45,
+                            &quot;player_name&quot;: &quot;Kostas Manolas&quot;,
+                            &quot;team_key&quot;: &quot;napoli&quot;,
+                            &quot;strength&quot;: 83,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                }
+            ],
+            &quot;matches&quot;: []
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;group_name&quot;: &quot;E&quot;,
+            &quot;teams&quot;: [
+                {
+                    &quot;id&quot;: 20,
+                    &quot;team_name&quot;: &quot;Manchester United&quot;,
+                    &quot;key&quot;: &quot;manchester_united&quot;,
+                    &quot;strength&quot;: 95,
+                    &quot;country_code&quot;: &quot;en&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;player_name&quot;: &quot;David De Gea&quot;,
+                            &quot;team_key&quot;: &quot;manchester_united&quot;,
+                            &quot;strength&quot;: 85,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;player_name&quot;: &quot;Marcus Rashford&quot;,
+                            &quot;team_key&quot;: &quot;manchester_united&quot;,
+                            &quot;strength&quot;: 84,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 25,
+                    &quot;team_name&quot;: &quot;Paris Saint-Germain&quot;,
+                    &quot;key&quot;: &quot;paris_saint_germain&quot;,
+                    &quot;strength&quot;: 94,
+                    &quot;country_code&quot;: &quot;fr&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 16,
+                            &quot;player_name&quot;: &quot;Neymar Jr.&quot;,
+                            &quot;team_key&quot;: &quot;paris_saint_germain&quot;,
+                            &quot;strength&quot;: 93,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 17,
+                            &quot;player_name&quot;: &quot;Kylian Mbapp&eacute;&quot;,
+                            &quot;team_key&quot;: &quot;paris_saint_germain&quot;,
+                            &quot;strength&quot;: 92,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 29,
+                    &quot;team_name&quot;: &quot;Atletico Madrid&quot;,
+                    &quot;key&quot;: &quot;atletico_madrid&quot;,
+                    &quot;strength&quot;: 88,
+                    &quot;country_code&quot;: &quot;es&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 22,
+                            &quot;player_name&quot;: &quot;Jo&atilde;o F&eacute;lix&quot;,
+                            &quot;team_key&quot;: &quot;atletico_madrid&quot;,
+                            &quot;strength&quot;: 86,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 23,
+                            &quot;player_name&quot;: &quot;Koke&quot;,
+                            &quot;team_key&quot;: &quot;atletico_madrid&quot;,
+                            &quot;strength&quot;: 85,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 42,
+                    &quot;team_name&quot;: &quot;Roma&quot;,
+                    &quot;key&quot;: &quot;roma&quot;,
+                    &quot;strength&quot;: 75,
+                    &quot;country_code&quot;: &quot;it&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 46,
+                            &quot;player_name&quot;: &quot;Tammy Abraham&quot;,
+                            &quot;team_key&quot;: &quot;roma&quot;,
+                            &quot;strength&quot;: 82,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 47,
+                            &quot;player_name&quot;: &quot;Lorenzo Pellegrini&quot;,
+                            &quot;team_key&quot;: &quot;roma&quot;,
+                            &quot;strength&quot;: 81,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 46,
+                    &quot;team_name&quot;: &quot;Trabzonspor&quot;,
+                    &quot;key&quot;: &quot;trabzonspor&quot;,
+                    &quot;strength&quot;: 71,
+                    &quot;country_code&quot;: &quot;tr&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 54,
+                            &quot;player_name&quot;: &quot;Uğurcan &Ccedil;akır&quot;,
+                            &quot;team_key&quot;: &quot;trabzonspor&quot;,
+                            &quot;strength&quot;: 78,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 55,
+                            &quot;player_name&quot;: &quot;Abd&uuml;lkadir &Ouml;m&uuml;r&quot;,
+                            &quot;team_key&quot;: &quot;trabzonspor&quot;,
+                            &quot;strength&quot;: 77,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                }
+            ],
+            &quot;matches&quot;: []
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;group_name&quot;: &quot;F&quot;,
+            &quot;teams&quot;: [
+                {
+                    &quot;id&quot;: 21,
+                    &quot;team_name&quot;: &quot;Real Madrid&quot;,
+                    &quot;key&quot;: &quot;real_madrid&quot;,
+                    &quot;strength&quot;: 97,
+                    &quot;country_code&quot;: &quot;es&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;player_name&quot;: &quot;Thibaut Courtois&quot;,
+                            &quot;team_key&quot;: &quot;real_madrid&quot;,
+                            &quot;strength&quot;: 88,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;player_name&quot;: &quot;Karim Benzema&quot;,
+                            &quot;team_key&quot;: &quot;real_madrid&quot;,
+                            &quot;strength&quot;: 89,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 28,
+                    &quot;team_name&quot;: &quot;Chelsea&quot;,
+                    &quot;key&quot;: &quot;chelsea&quot;,
+                    &quot;strength&quot;: 91,
+                    &quot;country_code&quot;: &quot;en&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 66,
+                            &quot;player_name&quot;: &quot;Reece James&quot;,
+                            &quot;team_key&quot;: &quot;chelsea&quot;,
+                            &quot;strength&quot;: 82,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 67,
+                            &quot;player_name&quot;: &quot;Enzo Fernandez&quot;,
+                            &quot;team_key&quot;: &quot;chelsea&quot;,
+                            &quot;strength&quot;: 80,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 31,
+                    &quot;team_name&quot;: &quot;AC Milan&quot;,
+                    &quot;key&quot;: &quot;ac_milan&quot;,
+                    &quot;strength&quot;: 86,
+                    &quot;country_code&quot;: &quot;it&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 26,
+                            &quot;player_name&quot;: &quot;Zlatan Ibrahimović&quot;,
+                            &quot;team_key&quot;: &quot;ac_milan&quot;,
+                            &quot;strength&quot;: 85,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 27,
+                            &quot;player_name&quot;: &quot;Gianluigi Donnarumma&quot;,
+                            &quot;team_key&quot;: &quot;ac_milan&quot;,
+                            &quot;strength&quot;: 88,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 45,
+                    &quot;team_name&quot;: &quot;Besiktas&quot;,
+                    &quot;key&quot;: &quot;besiktas&quot;,
+                    &quot;strength&quot;: 72,
+                    &quot;country_code&quot;: &quot;tr&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 50,
+                            &quot;player_name&quot;: &quot;Rachid Ghezzal&quot;,
+                            &quot;team_key&quot;: &quot;besiktas&quot;,
+                            &quot;strength&quot;: 80,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 51,
+                            &quot;player_name&quot;: &quot;Vincent Aboubakar&quot;,
+                            &quot;team_key&quot;: &quot;besiktas&quot;,
+                            &quot;strength&quot;: 82,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                }
+            ],
+            &quot;matches&quot;: []
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;group_name&quot;: &quot;G&quot;,
+            &quot;teams&quot;: [
+                {
+                    &quot;id&quot;: 22,
+                    &quot;team_name&quot;: &quot;Barcelona&quot;,
+                    &quot;key&quot;: &quot;barcelona&quot;,
+                    &quot;strength&quot;: 96,
+                    &quot;country_code&quot;: &quot;es&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 10,
+                            &quot;player_name&quot;: &quot;Lionel Messi&quot;,
+                            &quot;team_key&quot;: &quot;barcelona&quot;,
+                            &quot;strength&quot;: 94,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 11,
+                            &quot;player_name&quot;: &quot;Gerard Piqu&eacute;&quot;,
+                            &quot;team_key&quot;: &quot;barcelona&quot;,
+                            &quot;strength&quot;: 85,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 27,
+                    &quot;team_name&quot;: &quot;Liverpool&quot;,
+                    &quot;key&quot;: &quot;liverpool&quot;,
+                    &quot;strength&quot;: 93,
+                    &quot;country_code&quot;: &quot;en&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 20,
+                            &quot;player_name&quot;: &quot;Mohamed Salah&quot;,
+                            &quot;team_key&quot;: &quot;liverpool&quot;,
+                            &quot;strength&quot;: 90,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 21,
+                            &quot;player_name&quot;: &quot;Sadio Man&eacute;&quot;,
+                            &quot;team_key&quot;: &quot;liverpool&quot;,
+                            &quot;strength&quot;: 89,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 32,
+                    &quot;team_name&quot;: &quot;Inter Milan&quot;,
+                    &quot;key&quot;: &quot;inter_milan&quot;,
+                    &quot;strength&quot;: 85,
+                    &quot;country_code&quot;: &quot;it&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 28,
+                            &quot;player_name&quot;: &quot;Romelu Lukaku&quot;,
+                            &quot;team_key&quot;: &quot;inter_milan&quot;,
+                            &quot;strength&quot;: 88,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 29,
+                            &quot;player_name&quot;: &quot;Achraf Hakimi&quot;,
+                            &quot;team_key&quot;: &quot;inter_milan&quot;,
+                            &quot;strength&quot;: 85,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 44,
+                    &quot;team_name&quot;: &quot;Fenerbahce&quot;,
+                    &quot;key&quot;: &quot;fenerbahce&quot;,
+                    &quot;strength&quot;: 73,
+                    &quot;country_code&quot;: &quot;tr&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 48,
+                            &quot;player_name&quot;: &quot;İrfan Can Kahveci&quot;,
+                            &quot;team_key&quot;: &quot;fenerbahce&quot;,
+                            &quot;strength&quot;: 81,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 49,
+                            &quot;player_name&quot;: &quot;Ferdi Kadıoğlu&quot;,
+                            &quot;team_key&quot;: &quot;fenerbahce&quot;,
+                            &quot;strength&quot;: 83,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                }
+            ],
+            &quot;matches&quot;: []
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;group_name&quot;: &quot;H&quot;,
+            &quot;teams&quot;: [
+                {
+                    &quot;id&quot;: 19,
+                    &quot;team_name&quot;: &quot;Manchester City&quot;,
+                    &quot;key&quot;: &quot;manchester_city&quot;,
+                    &quot;strength&quot;: 98,
+                    &quot;country_code&quot;: &quot;en&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;player_name&quot;: &quot;Ederson&quot;,
+                            &quot;team_key&quot;: &quot;manchester_city&quot;,
+                            &quot;strength&quot;: 89,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;player_name&quot;: &quot;Kyle Walker&quot;,
+                            &quot;team_key&quot;: &quot;manchester_city&quot;,
+                            &quot;strength&quot;: 87,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 26,
+                    &quot;team_name&quot;: &quot;Olympique de Marseille&quot;,
+                    &quot;key&quot;: &quot;olympique_marseille&quot;,
+                    &quot;strength&quot;: 89,
+                    &quot;country_code&quot;: &quot;fr&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 18,
+                            &quot;player_name&quot;: &quot;Dimitri Payet&quot;,
+                            &quot;team_key&quot;: &quot;olympique_marseille&quot;,
+                            &quot;strength&quot;: 86,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 19,
+                            &quot;player_name&quot;: &quot;Florian Thauvin&quot;,
+                            &quot;team_key&quot;: &quot;olympique_marseille&quot;,
+                            &quot;strength&quot;: 85,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 43,
+                    &quot;team_name&quot;: &quot;Galatasaray&quot;,
+                    &quot;key&quot;: &quot;galatasaray&quot;,
+                    &quot;strength&quot;: 74,
+                    &quot;country_code&quot;: &quot;tr&quot;,
+                    &quot;points&quot;: 0,
+                    &quot;statistics&quot;: {
+                        &quot;goals_scored&quot;: 0,
+                        &quot;goals_conceded&quot;: 0
+                    },
+                    &quot;players&quot;: [
+                        {
+                            &quot;id&quot;: 52,
+                            &quot;player_name&quot;: &quot;Kerem Akt&uuml;rkoğlu&quot;,
+                            &quot;team_key&quot;: &quot;galatasaray&quot;,
+                            &quot;strength&quot;: 79,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        },
+                        {
+                            &quot;id&quot;: 53,
+                            &quot;player_name&quot;: &quot;Mauro Icardi&quot;,
+                            &quot;team_key&quot;: &quot;galatasaray&quot;,
+                            &quot;strength&quot;: 84,
+                            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;
+                        }
+                    ]
+                }
+            ],
+            &quot;matches&quot;: []
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-groups" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-groups"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-groups"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-groups" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-groups">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-groups" data-method="GET"
+      data-path="api/groups"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-groups', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-groups"
+                    onclick="tryItOut('GETapi-groups');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-groups"
+                    onclick="cancelTryOut('GETapi-groups');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-groups"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/groups</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-groups"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-groups"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                <h1 id="match">Match</h1>
+
+    
+
+                                <h2 id="match-GETapi-matches">List Matches</h2>
+
+<p>
+</p>
+
+<p>Get the list of matches.</p>
+
+<span id="example-requests-GETapi-matches">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/matches" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/matches"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-matches">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 54
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: true,
+    &quot;message&quot;: &quot;The matches listed successfully.&quot;,
+    &quot;data&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-matches" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-matches"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-matches"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-matches" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-matches">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-matches" data-method="GET"
+      data-path="api/matches"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-matches', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-matches"
+                    onclick="tryItOut('GETapi-matches');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-matches"
+                    onclick="cancelTryOut('GETapi-matches');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-matches"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/matches</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-matches"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-matches"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="match-GETapi-match-reset">Reset Matches</h2>
+
+<p>
+</p>
+
+<p>Get the reset of matches.</p>
+
+<span id="example-requests-GETapi-match-reset">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/match-reset" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/match-reset"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-match-reset">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 53
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: true,
+    &quot;message&quot;: &quot;The matches reseted successfully.&quot;,
+    &quot;data&quot;: {}
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-match-reset" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-match-reset"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-match-reset"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-match-reset" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-match-reset">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-match-reset" data-method="GET"
+      data-path="api/match-reset"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-match-reset', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-match-reset"
+                    onclick="tryItOut('GETapi-match-reset');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-match-reset"
+                    onclick="cancelTryOut('GETapi-match-reset');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-match-reset"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/match-reset</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-match-reset"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-match-reset"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                <h1 id="simulation">Simulation</h1>
+
+    
+
+                                <h2 id="simulation-GETapi-simulation">Start Simulation</h2>
+
+<p>
+</p>
+
+<p>Get the start of simulation.</p>
+
+<span id="example-requests-GETapi-simulation">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/simulation" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/simulation"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-simulation">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 52
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: true,
+    &quot;message&quot;: &quot;The simulation was done successfully.&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 39,
+            &quot;team_name&quot;: &quot;RB Leipzig&quot;,
+            &quot;key&quot;: &quot;rb_leipzig&quot;,
+            &quot;strength&quot;: 78,
+            &quot;group_id&quot;: 4,
+            &quot;country_code&quot;: &quot;de&quot;,
+            &quot;points&quot;: 28,
+            &quot;created_at&quot;: &quot;2023-09-29T06:30:58.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-29T07:29:19.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-simulation" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-simulation"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-simulation"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-simulation" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-simulation">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-simulation" data-method="GET"
+      data-path="api/simulation"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-simulation', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-simulation"
+                    onclick="tryItOut('GETapi-simulation');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-simulation"
+                    onclick="cancelTryOut('GETapi-simulation');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-simulation"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/simulation</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-simulation"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-simulation"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

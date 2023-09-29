@@ -1,0 +1,44 @@
+name: Simulation
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/simulation
+    metadata:
+      groupName: Simulation
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Start Simulation'
+      description: 'Get the start of simulation.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"The simulation was done successfully.","data":[{"id":39,"team_name":"RB Leipzig","key":"rb_leipzig","strength":78,"group_id":4,"country_code":"de","points":28,"created_at":"2023-09-29T06:30:58.000000Z","updated_at":"2023-09-29T07:29:19.000000Z"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -1,0 +1,2052 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://127.0.0.1:8000'
+paths:
+  /api/groups:
+    get:
+      summary: 'List Groups'
+      operationId: listGroups
+      description: 'Get the list of groups.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'The groups listed successfully.'
+                  data:
+                    -
+                      id: 4
+                      group_name: A
+                      teams:
+                        -
+                          id: 34
+                          team_name: 'PSV Eindhoven'
+                          key: psv_eindhoven
+                          strength: 83
+                          country_code: nl
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 32
+                              player_name: 'Mario Götze'
+                              team_key: psv_eindhoven
+                              strength: 83
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 33
+                              player_name: 'Cody Gakpo'
+                              team_key: psv_eindhoven
+                              strength: 82
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 35
+                          team_name: Porto
+                          key: porto
+                          strength: 82
+                          country_code: pt
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 34
+                              player_name: Pepe
+                              team_key: porto
+                              strength: 83
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 35
+                              player_name: 'Rafa Silva'
+                              team_key: porto
+                              strength: 82
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 39
+                          team_name: 'RB Leipzig'
+                          key: rb_leipzig
+                          strength: 78
+                          country_code: de
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 40
+                              player_name: 'Ivan Savanovic'
+                              team_key: rb_leipzig
+                              strength: 79
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 41
+                              player_name: 'Patrik Schick'
+                              team_key: rb_leipzig
+                              strength: 82
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 49
+                          team_name: 'Dynamo Kyiv'
+                          key: dynamo_kyiv
+                          strength: 70
+                          country_code: ua
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 60
+                              player_name: 'Viktor Tsygankov'
+                              team_key: dynamo_kyiv
+                              strength: 82
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 61
+                              player_name: 'Gerson Rodrigues'
+                              team_key: dynamo_kyiv
+                              strength: 79
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                      matches: []
+                    -
+                      id: 5
+                      group_name: B
+                      teams:
+                        -
+                          id: 24
+                          team_name: 'Borussia Dortmund'
+                          key: borussia_dortmund
+                          strength: 90
+                          country_code: de
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 14
+                              player_name: 'Erling Haaland'
+                              team_key: borussia_dortmund
+                              strength: 89
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 15
+                              player_name: 'Jadon Sancho'
+                              team_key: borussia_dortmund
+                              strength: 87
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 33
+                          team_name: Ajax
+                          key: ajax
+                          strength: 84
+                          country_code: nl
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 30
+                              player_name: 'Dusan Tadić'
+                              team_key: ajax
+                              strength: 84
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 31
+                              player_name: 'Daley Blind'
+                              team_key: ajax
+                              strength: 83
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 36
+                          team_name: Benfica
+                          key: benfica
+                          strength: 81
+                          country_code: pt
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 64
+                              player_name: 'Di Maria'
+                              team_key: benfica
+                              strength: 87
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 65
+                              player_name: 'Rafa Silva'
+                              team_key: benfica
+                              strength: 84
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 48
+                          team_name: 'Shakhtar Donetsk'
+                          key: shakhtar_donetsk
+                          strength: 71
+                          country_code: ua
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 62
+                              player_name: Taison
+                              team_key: shakhtar_donetsk
+                              strength: 84
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 63
+                              player_name: 'Alan Patrick'
+                              team_key: shakhtar_donetsk
+                              strength: 83
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                      matches: []
+                    -
+                      id: 6
+                      group_name: C
+                      teams:
+                        -
+                          id: 23
+                          team_name: 'Bayern Munich'
+                          key: bayern_munich
+                          strength: 92
+                          country_code: de
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 12
+                              player_name: 'Robert Lewandowski'
+                              team_key: bayern_munich
+                              strength: 92
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 13
+                              player_name: 'Thomas Müller'
+                              team_key: bayern_munich
+                              strength: 88
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 37
+                          team_name: 'Zenit St. Petersburg'
+                          key: zenit_st_petersburg
+                          strength: 80
+                          country_code: ru
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 36
+                              player_name: 'Artem Dzyuba'
+                              team_key: zenit_st_petersburg
+                              strength: 81
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 37
+                              player_name: Malcom
+                              team_key: zenit_st_petersburg
+                              strength: 80
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 47
+                          team_name: Olympiacos
+                          key: olympiacos
+                          strength: 72
+                          country_code: gr
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 56
+                              player_name: "Yann M'Vila"
+                              team_key: olympiacos
+                              strength: 76
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 57
+                              player_name: 'Ahmed Hassan Koka'
+                              team_key: olympiacos
+                              strength: 75
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 50
+                          team_name: Celtic
+                          key: celtic
+                          strength: 69
+                          country_code: sc
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 58
+                              player_name: 'Odsonne Edouard'
+                              team_key: celtic
+                              strength: 80
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 59
+                              player_name: 'Callum McGregor'
+                              team_key: celtic
+                              strength: 81
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                      matches: []
+                    -
+                      id: 7
+                      group_name: D
+                      teams:
+                        -
+                          id: 30
+                          team_name: Sevilla
+                          key: sevilla
+                          strength: 87
+                          country_code: es
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 24
+                              player_name: 'Lucas Ocampos'
+                              team_key: sevilla
+                              strength: 84
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 25
+                              player_name: 'Jules Koundé'
+                              team_key: sevilla
+                              strength: 83
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 38
+                          team_name: 'CSKA Moscow'
+                          key: cska_moscow
+                          strength: 79
+                          country_code: ru
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 38
+                              player_name: 'Fedor Chalov'
+                              team_key: cska_moscow
+                              strength: 80
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 39
+                              player_name: 'Igor Akinfeev'
+                              team_key: cska_moscow
+                              strength: 81
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 40
+                          team_name: 'Bayer Leverkusen'
+                          key: bayer_leverkusen
+                          strength: 77
+                          country_code: de
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 42
+                              player_name: 'Moussa Diaby'
+                              team_key: bayer_leverkusen
+                              strength: 78
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 43
+                              player_name: 'Kerem Demirbay'
+                              team_key: bayer_leverkusen
+                              strength: 80
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 41
+                          team_name: Napoli
+                          key: napoli
+                          strength: 76
+                          country_code: it
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 44
+                              player_name: 'Lorenzo Insigne'
+                              team_key: napoli
+                              strength: 85
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 45
+                              player_name: 'Kostas Manolas'
+                              team_key: napoli
+                              strength: 83
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                      matches: []
+                    -
+                      id: 8
+                      group_name: E
+                      teams:
+                        -
+                          id: 20
+                          team_name: 'Manchester United'
+                          key: manchester_united
+                          strength: 95
+                          country_code: en
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 6
+                              player_name: 'David De Gea'
+                              team_key: manchester_united
+                              strength: 85
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 7
+                              player_name: 'Marcus Rashford'
+                              team_key: manchester_united
+                              strength: 84
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 25
+                          team_name: 'Paris Saint-Germain'
+                          key: paris_saint_germain
+                          strength: 94
+                          country_code: fr
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 16
+                              player_name: 'Neymar Jr.'
+                              team_key: paris_saint_germain
+                              strength: 93
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 17
+                              player_name: 'Kylian Mbappé'
+                              team_key: paris_saint_germain
+                              strength: 92
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 29
+                          team_name: 'Atletico Madrid'
+                          key: atletico_madrid
+                          strength: 88
+                          country_code: es
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 22
+                              player_name: 'João Félix'
+                              team_key: atletico_madrid
+                              strength: 86
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 23
+                              player_name: Koke
+                              team_key: atletico_madrid
+                              strength: 85
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 42
+                          team_name: Roma
+                          key: roma
+                          strength: 75
+                          country_code: it
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 46
+                              player_name: 'Tammy Abraham'
+                              team_key: roma
+                              strength: 82
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 47
+                              player_name: 'Lorenzo Pellegrini'
+                              team_key: roma
+                              strength: 81
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 46
+                          team_name: Trabzonspor
+                          key: trabzonspor
+                          strength: 71
+                          country_code: tr
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 54
+                              player_name: 'Uğurcan Çakır'
+                              team_key: trabzonspor
+                              strength: 78
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 55
+                              player_name: 'Abdülkadir Ömür'
+                              team_key: trabzonspor
+                              strength: 77
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                      matches: []
+                    -
+                      id: 9
+                      group_name: F
+                      teams:
+                        -
+                          id: 21
+                          team_name: 'Real Madrid'
+                          key: real_madrid
+                          strength: 97
+                          country_code: es
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 8
+                              player_name: 'Thibaut Courtois'
+                              team_key: real_madrid
+                              strength: 88
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 9
+                              player_name: 'Karim Benzema'
+                              team_key: real_madrid
+                              strength: 89
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 28
+                          team_name: Chelsea
+                          key: chelsea
+                          strength: 91
+                          country_code: en
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 66
+                              player_name: 'Reece James'
+                              team_key: chelsea
+                              strength: 82
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 67
+                              player_name: 'Enzo Fernandez'
+                              team_key: chelsea
+                              strength: 80
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 31
+                          team_name: 'AC Milan'
+                          key: ac_milan
+                          strength: 86
+                          country_code: it
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 26
+                              player_name: 'Zlatan Ibrahimović'
+                              team_key: ac_milan
+                              strength: 85
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 27
+                              player_name: 'Gianluigi Donnarumma'
+                              team_key: ac_milan
+                              strength: 88
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 45
+                          team_name: Besiktas
+                          key: besiktas
+                          strength: 72
+                          country_code: tr
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 50
+                              player_name: 'Rachid Ghezzal'
+                              team_key: besiktas
+                              strength: 80
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 51
+                              player_name: 'Vincent Aboubakar'
+                              team_key: besiktas
+                              strength: 82
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                      matches: []
+                    -
+                      id: 10
+                      group_name: G
+                      teams:
+                        -
+                          id: 22
+                          team_name: Barcelona
+                          key: barcelona
+                          strength: 96
+                          country_code: es
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 10
+                              player_name: 'Lionel Messi'
+                              team_key: barcelona
+                              strength: 94
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 11
+                              player_name: 'Gerard Piqué'
+                              team_key: barcelona
+                              strength: 85
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 27
+                          team_name: Liverpool
+                          key: liverpool
+                          strength: 93
+                          country_code: en
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 20
+                              player_name: 'Mohamed Salah'
+                              team_key: liverpool
+                              strength: 90
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 21
+                              player_name: 'Sadio Mané'
+                              team_key: liverpool
+                              strength: 89
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 32
+                          team_name: 'Inter Milan'
+                          key: inter_milan
+                          strength: 85
+                          country_code: it
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 28
+                              player_name: 'Romelu Lukaku'
+                              team_key: inter_milan
+                              strength: 88
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 29
+                              player_name: 'Achraf Hakimi'
+                              team_key: inter_milan
+                              strength: 85
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 44
+                          team_name: Fenerbahce
+                          key: fenerbahce
+                          strength: 73
+                          country_code: tr
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 48
+                              player_name: 'İrfan Can Kahveci'
+                              team_key: fenerbahce
+                              strength: 81
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 49
+                              player_name: 'Ferdi Kadıoğlu'
+                              team_key: fenerbahce
+                              strength: 83
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                      matches: []
+                    -
+                      id: 11
+                      group_name: H
+                      teams:
+                        -
+                          id: 19
+                          team_name: 'Manchester City'
+                          key: manchester_city
+                          strength: 98
+                          country_code: en
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 4
+                              player_name: Ederson
+                              team_key: manchester_city
+                              strength: 89
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 5
+                              player_name: 'Kyle Walker'
+                              team_key: manchester_city
+                              strength: 87
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 26
+                          team_name: 'Olympique de Marseille'
+                          key: olympique_marseille
+                          strength: 89
+                          country_code: fr
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 18
+                              player_name: 'Dimitri Payet'
+                              team_key: olympique_marseille
+                              strength: 86
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 19
+                              player_name: 'Florian Thauvin'
+                              team_key: olympique_marseille
+                              strength: 85
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                        -
+                          id: 43
+                          team_name: Galatasaray
+                          key: galatasaray
+                          strength: 74
+                          country_code: tr
+                          points: 0
+                          statistics:
+                            goals_scored: 0
+                            goals_conceded: 0
+                          players:
+                            -
+                              id: 52
+                              player_name: 'Kerem Aktürkoğlu'
+                              team_key: galatasaray
+                              strength: 79
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 53
+                              player_name: 'Mauro Icardi'
+                              team_key: galatasaray
+                              strength: 84
+                              created_at: '2023-09-29T06:30:58.000000Z'
+                              updated_at: '2023-09-29T06:30:58.000000Z'
+                      matches: []
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'The groups listed successfully.'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        group_name: A
+                        teams:
+                          -
+                            id: 34
+                            team_name: 'PSV Eindhoven'
+                            key: psv_eindhoven
+                            strength: 83
+                            country_code: nl
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 32
+                                player_name: 'Mario Götze'
+                                team_key: psv_eindhoven
+                                strength: 83
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 33
+                                player_name: 'Cody Gakpo'
+                                team_key: psv_eindhoven
+                                strength: 82
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 35
+                            team_name: Porto
+                            key: porto
+                            strength: 82
+                            country_code: pt
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 34
+                                player_name: Pepe
+                                team_key: porto
+                                strength: 83
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 35
+                                player_name: 'Rafa Silva'
+                                team_key: porto
+                                strength: 82
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 39
+                            team_name: 'RB Leipzig'
+                            key: rb_leipzig
+                            strength: 78
+                            country_code: de
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 40
+                                player_name: 'Ivan Savanovic'
+                                team_key: rb_leipzig
+                                strength: 79
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 41
+                                player_name: 'Patrik Schick'
+                                team_key: rb_leipzig
+                                strength: 82
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 49
+                            team_name: 'Dynamo Kyiv'
+                            key: dynamo_kyiv
+                            strength: 70
+                            country_code: ua
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 60
+                                player_name: 'Viktor Tsygankov'
+                                team_key: dynamo_kyiv
+                                strength: 82
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 61
+                                player_name: 'Gerson Rodrigues'
+                                team_key: dynamo_kyiv
+                                strength: 79
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                        matches: []
+                      -
+                        id: 5
+                        group_name: B
+                        teams:
+                          -
+                            id: 24
+                            team_name: 'Borussia Dortmund'
+                            key: borussia_dortmund
+                            strength: 90
+                            country_code: de
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 14
+                                player_name: 'Erling Haaland'
+                                team_key: borussia_dortmund
+                                strength: 89
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 15
+                                player_name: 'Jadon Sancho'
+                                team_key: borussia_dortmund
+                                strength: 87
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 33
+                            team_name: Ajax
+                            key: ajax
+                            strength: 84
+                            country_code: nl
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 30
+                                player_name: 'Dusan Tadić'
+                                team_key: ajax
+                                strength: 84
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 31
+                                player_name: 'Daley Blind'
+                                team_key: ajax
+                                strength: 83
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 36
+                            team_name: Benfica
+                            key: benfica
+                            strength: 81
+                            country_code: pt
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 64
+                                player_name: 'Di Maria'
+                                team_key: benfica
+                                strength: 87
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 65
+                                player_name: 'Rafa Silva'
+                                team_key: benfica
+                                strength: 84
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 48
+                            team_name: 'Shakhtar Donetsk'
+                            key: shakhtar_donetsk
+                            strength: 71
+                            country_code: ua
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 62
+                                player_name: Taison
+                                team_key: shakhtar_donetsk
+                                strength: 84
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 63
+                                player_name: 'Alan Patrick'
+                                team_key: shakhtar_donetsk
+                                strength: 83
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                        matches: []
+                      -
+                        id: 6
+                        group_name: C
+                        teams:
+                          -
+                            id: 23
+                            team_name: 'Bayern Munich'
+                            key: bayern_munich
+                            strength: 92
+                            country_code: de
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 12
+                                player_name: 'Robert Lewandowski'
+                                team_key: bayern_munich
+                                strength: 92
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 13
+                                player_name: 'Thomas Müller'
+                                team_key: bayern_munich
+                                strength: 88
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 37
+                            team_name: 'Zenit St. Petersburg'
+                            key: zenit_st_petersburg
+                            strength: 80
+                            country_code: ru
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 36
+                                player_name: 'Artem Dzyuba'
+                                team_key: zenit_st_petersburg
+                                strength: 81
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 37
+                                player_name: Malcom
+                                team_key: zenit_st_petersburg
+                                strength: 80
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 47
+                            team_name: Olympiacos
+                            key: olympiacos
+                            strength: 72
+                            country_code: gr
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 56
+                                player_name: "Yann M'Vila"
+                                team_key: olympiacos
+                                strength: 76
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 57
+                                player_name: 'Ahmed Hassan Koka'
+                                team_key: olympiacos
+                                strength: 75
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 50
+                            team_name: Celtic
+                            key: celtic
+                            strength: 69
+                            country_code: sc
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 58
+                                player_name: 'Odsonne Edouard'
+                                team_key: celtic
+                                strength: 80
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 59
+                                player_name: 'Callum McGregor'
+                                team_key: celtic
+                                strength: 81
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                        matches: []
+                      -
+                        id: 7
+                        group_name: D
+                        teams:
+                          -
+                            id: 30
+                            team_name: Sevilla
+                            key: sevilla
+                            strength: 87
+                            country_code: es
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 24
+                                player_name: 'Lucas Ocampos'
+                                team_key: sevilla
+                                strength: 84
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 25
+                                player_name: 'Jules Koundé'
+                                team_key: sevilla
+                                strength: 83
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 38
+                            team_name: 'CSKA Moscow'
+                            key: cska_moscow
+                            strength: 79
+                            country_code: ru
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 38
+                                player_name: 'Fedor Chalov'
+                                team_key: cska_moscow
+                                strength: 80
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 39
+                                player_name: 'Igor Akinfeev'
+                                team_key: cska_moscow
+                                strength: 81
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 40
+                            team_name: 'Bayer Leverkusen'
+                            key: bayer_leverkusen
+                            strength: 77
+                            country_code: de
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 42
+                                player_name: 'Moussa Diaby'
+                                team_key: bayer_leverkusen
+                                strength: 78
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 43
+                                player_name: 'Kerem Demirbay'
+                                team_key: bayer_leverkusen
+                                strength: 80
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 41
+                            team_name: Napoli
+                            key: napoli
+                            strength: 76
+                            country_code: it
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 44
+                                player_name: 'Lorenzo Insigne'
+                                team_key: napoli
+                                strength: 85
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 45
+                                player_name: 'Kostas Manolas'
+                                team_key: napoli
+                                strength: 83
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                        matches: []
+                      -
+                        id: 8
+                        group_name: E
+                        teams:
+                          -
+                            id: 20
+                            team_name: 'Manchester United'
+                            key: manchester_united
+                            strength: 95
+                            country_code: en
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 6
+                                player_name: 'David De Gea'
+                                team_key: manchester_united
+                                strength: 85
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 7
+                                player_name: 'Marcus Rashford'
+                                team_key: manchester_united
+                                strength: 84
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 25
+                            team_name: 'Paris Saint-Germain'
+                            key: paris_saint_germain
+                            strength: 94
+                            country_code: fr
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 16
+                                player_name: 'Neymar Jr.'
+                                team_key: paris_saint_germain
+                                strength: 93
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 17
+                                player_name: 'Kylian Mbappé'
+                                team_key: paris_saint_germain
+                                strength: 92
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 29
+                            team_name: 'Atletico Madrid'
+                            key: atletico_madrid
+                            strength: 88
+                            country_code: es
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 22
+                                player_name: 'João Félix'
+                                team_key: atletico_madrid
+                                strength: 86
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 23
+                                player_name: Koke
+                                team_key: atletico_madrid
+                                strength: 85
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 42
+                            team_name: Roma
+                            key: roma
+                            strength: 75
+                            country_code: it
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 46
+                                player_name: 'Tammy Abraham'
+                                team_key: roma
+                                strength: 82
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 47
+                                player_name: 'Lorenzo Pellegrini'
+                                team_key: roma
+                                strength: 81
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 46
+                            team_name: Trabzonspor
+                            key: trabzonspor
+                            strength: 71
+                            country_code: tr
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 54
+                                player_name: 'Uğurcan Çakır'
+                                team_key: trabzonspor
+                                strength: 78
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 55
+                                player_name: 'Abdülkadir Ömür'
+                                team_key: trabzonspor
+                                strength: 77
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                        matches: []
+                      -
+                        id: 9
+                        group_name: F
+                        teams:
+                          -
+                            id: 21
+                            team_name: 'Real Madrid'
+                            key: real_madrid
+                            strength: 97
+                            country_code: es
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 8
+                                player_name: 'Thibaut Courtois'
+                                team_key: real_madrid
+                                strength: 88
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 9
+                                player_name: 'Karim Benzema'
+                                team_key: real_madrid
+                                strength: 89
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 28
+                            team_name: Chelsea
+                            key: chelsea
+                            strength: 91
+                            country_code: en
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 66
+                                player_name: 'Reece James'
+                                team_key: chelsea
+                                strength: 82
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 67
+                                player_name: 'Enzo Fernandez'
+                                team_key: chelsea
+                                strength: 80
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 31
+                            team_name: 'AC Milan'
+                            key: ac_milan
+                            strength: 86
+                            country_code: it
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 26
+                                player_name: 'Zlatan Ibrahimović'
+                                team_key: ac_milan
+                                strength: 85
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 27
+                                player_name: 'Gianluigi Donnarumma'
+                                team_key: ac_milan
+                                strength: 88
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 45
+                            team_name: Besiktas
+                            key: besiktas
+                            strength: 72
+                            country_code: tr
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 50
+                                player_name: 'Rachid Ghezzal'
+                                team_key: besiktas
+                                strength: 80
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 51
+                                player_name: 'Vincent Aboubakar'
+                                team_key: besiktas
+                                strength: 82
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                        matches: []
+                      -
+                        id: 10
+                        group_name: G
+                        teams:
+                          -
+                            id: 22
+                            team_name: Barcelona
+                            key: barcelona
+                            strength: 96
+                            country_code: es
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 10
+                                player_name: 'Lionel Messi'
+                                team_key: barcelona
+                                strength: 94
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 11
+                                player_name: 'Gerard Piqué'
+                                team_key: barcelona
+                                strength: 85
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 27
+                            team_name: Liverpool
+                            key: liverpool
+                            strength: 93
+                            country_code: en
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 20
+                                player_name: 'Mohamed Salah'
+                                team_key: liverpool
+                                strength: 90
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 21
+                                player_name: 'Sadio Mané'
+                                team_key: liverpool
+                                strength: 89
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 32
+                            team_name: 'Inter Milan'
+                            key: inter_milan
+                            strength: 85
+                            country_code: it
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 28
+                                player_name: 'Romelu Lukaku'
+                                team_key: inter_milan
+                                strength: 88
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 29
+                                player_name: 'Achraf Hakimi'
+                                team_key: inter_milan
+                                strength: 85
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 44
+                            team_name: Fenerbahce
+                            key: fenerbahce
+                            strength: 73
+                            country_code: tr
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 48
+                                player_name: 'İrfan Can Kahveci'
+                                team_key: fenerbahce
+                                strength: 81
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 49
+                                player_name: 'Ferdi Kadıoğlu'
+                                team_key: fenerbahce
+                                strength: 83
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                        matches: []
+                      -
+                        id: 11
+                        group_name: H
+                        teams:
+                          -
+                            id: 19
+                            team_name: 'Manchester City'
+                            key: manchester_city
+                            strength: 98
+                            country_code: en
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 4
+                                player_name: Ederson
+                                team_key: manchester_city
+                                strength: 89
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 5
+                                player_name: 'Kyle Walker'
+                                team_key: manchester_city
+                                strength: 87
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 26
+                            team_name: 'Olympique de Marseille'
+                            key: olympique_marseille
+                            strength: 89
+                            country_code: fr
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 18
+                                player_name: 'Dimitri Payet'
+                                team_key: olympique_marseille
+                                strength: 86
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 19
+                                player_name: 'Florian Thauvin'
+                                team_key: olympique_marseille
+                                strength: 85
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                          -
+                            id: 43
+                            team_name: Galatasaray
+                            key: galatasaray
+                            strength: 74
+                            country_code: tr
+                            points: 0
+                            statistics:
+                              goals_scored: 0
+                              goals_conceded: 0
+                            players:
+                              -
+                                id: 52
+                                player_name: 'Kerem Aktürkoğlu'
+                                team_key: galatasaray
+                                strength: 79
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                              -
+                                id: 53
+                                player_name: 'Mauro Icardi'
+                                team_key: galatasaray
+                                strength: 84
+                                created_at: '2023-09-29T06:30:58.000000Z'
+                                updated_at: '2023-09-29T06:30:58.000000Z'
+                        matches: []
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 4
+                        group_name:
+                          type: string
+                          example: A
+                        teams:
+                          type: array
+                          example:
+                            -
+                              id: 34
+                              team_name: 'PSV Eindhoven'
+                              key: psv_eindhoven
+                              strength: 83
+                              country_code: nl
+                              points: 0
+                              statistics:
+                                goals_scored: 0
+                                goals_conceded: 0
+                              players:
+                                -
+                                  id: 32
+                                  player_name: 'Mario Götze'
+                                  team_key: psv_eindhoven
+                                  strength: 83
+                                  created_at: '2023-09-29T06:30:58.000000Z'
+                                  updated_at: '2023-09-29T06:30:58.000000Z'
+                                -
+                                  id: 33
+                                  player_name: 'Cody Gakpo'
+                                  team_key: psv_eindhoven
+                                  strength: 82
+                                  created_at: '2023-09-29T06:30:58.000000Z'
+                                  updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 35
+                              team_name: Porto
+                              key: porto
+                              strength: 82
+                              country_code: pt
+                              points: 0
+                              statistics:
+                                goals_scored: 0
+                                goals_conceded: 0
+                              players:
+                                -
+                                  id: 34
+                                  player_name: Pepe
+                                  team_key: porto
+                                  strength: 83
+                                  created_at: '2023-09-29T06:30:58.000000Z'
+                                  updated_at: '2023-09-29T06:30:58.000000Z'
+                                -
+                                  id: 35
+                                  player_name: 'Rafa Silva'
+                                  team_key: porto
+                                  strength: 82
+                                  created_at: '2023-09-29T06:30:58.000000Z'
+                                  updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 39
+                              team_name: 'RB Leipzig'
+                              key: rb_leipzig
+                              strength: 78
+                              country_code: de
+                              points: 0
+                              statistics:
+                                goals_scored: 0
+                                goals_conceded: 0
+                              players:
+                                -
+                                  id: 40
+                                  player_name: 'Ivan Savanovic'
+                                  team_key: rb_leipzig
+                                  strength: 79
+                                  created_at: '2023-09-29T06:30:58.000000Z'
+                                  updated_at: '2023-09-29T06:30:58.000000Z'
+                                -
+                                  id: 41
+                                  player_name: 'Patrik Schick'
+                                  team_key: rb_leipzig
+                                  strength: 82
+                                  created_at: '2023-09-29T06:30:58.000000Z'
+                                  updated_at: '2023-09-29T06:30:58.000000Z'
+                            -
+                              id: 49
+                              team_name: 'Dynamo Kyiv'
+                              key: dynamo_kyiv
+                              strength: 70
+                              country_code: ua
+                              points: 0
+                              statistics:
+                                goals_scored: 0
+                                goals_conceded: 0
+                              players:
+                                -
+                                  id: 60
+                                  player_name: 'Viktor Tsygankov'
+                                  team_key: dynamo_kyiv
+                                  strength: 82
+                                  created_at: '2023-09-29T06:30:58.000000Z'
+                                  updated_at: '2023-09-29T06:30:58.000000Z'
+                                -
+                                  id: 61
+                                  player_name: 'Gerson Rodrigues'
+                                  team_key: dynamo_kyiv
+                                  strength: 79
+                                  created_at: '2023-09-29T06:30:58.000000Z'
+                                  updated_at: '2023-09-29T06:30:58.000000Z'
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 34
+                              team_name:
+                                type: string
+                                example: 'PSV Eindhoven'
+                              key:
+                                type: string
+                                example: psv_eindhoven
+                              strength:
+                                type: integer
+                                example: 83
+                              country_code:
+                                type: string
+                                example: nl
+                              points:
+                                type: integer
+                                example: 0
+                              statistics:
+                                type: object
+                                properties:
+                                  goals_scored:
+                                    type: integer
+                                    example: 0
+                                  goals_conceded:
+                                    type: integer
+                                    example: 0
+                              players:
+                                type: array
+                                example:
+                                  -
+                                    id: 32
+                                    player_name: 'Mario Götze'
+                                    team_key: psv_eindhoven
+                                    strength: 83
+                                    created_at: '2023-09-29T06:30:58.000000Z'
+                                    updated_at: '2023-09-29T06:30:58.000000Z'
+                                  -
+                                    id: 33
+                                    player_name: 'Cody Gakpo'
+                                    team_key: psv_eindhoven
+                                    strength: 82
+                                    created_at: '2023-09-29T06:30:58.000000Z'
+                                    updated_at: '2023-09-29T06:30:58.000000Z'
+                                items:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                      example: 32
+                                    player_name:
+                                      type: string
+                                      example: 'Mario Götze'
+                                    team_key:
+                                      type: string
+                                      example: psv_eindhoven
+                                    strength:
+                                      type: integer
+                                      example: 83
+                                    created_at:
+                                      type: string
+                                      example: '2023-09-29T06:30:58.000000Z'
+                                    updated_at:
+                                      type: string
+                                      example: '2023-09-29T06:30:58.000000Z'
+                        matches:
+                          type: array
+                          example: []
+      tags:
+        - Group
+      security: []
+  /api/matches:
+    get:
+      summary: 'List Matches'
+      operationId: listMatches
+      description: 'Get the list of matches.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'The matches listed successfully.'
+                  data: []
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'The matches listed successfully.'
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Match
+      security: []
+  /api/match-reset:
+    get:
+      summary: 'Reset Matches'
+      operationId: resetMatches
+      description: 'Get the reset of matches.'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'The matches reseted successfully.'
+                  data: {  }
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'The matches reseted successfully.'
+                  data:
+                    type: object
+                    properties: {  }
+      tags:
+        - Match
+      security: []
+  /api/simulation:
+    get:
+      summary: 'Start Simulation'
+      operationId: startSimulation
+      description: 'Get the start of simulation.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'The simulation was done successfully.'
+                  data:
+                    -
+                      id: 39
+                      team_name: 'RB Leipzig'
+                      key: rb_leipzig
+                      strength: 78
+                      group_id: 4
+                      country_code: de
+                      points: 28
+                      created_at: '2023-09-29T06:30:58.000000Z'
+                      updated_at: '2023-09-29T07:29:19.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'The simulation was done successfully.'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 39
+                        team_name: 'RB Leipzig'
+                        key: rb_leipzig
+                        strength: 78
+                        group_id: 4
+                        country_code: de
+                        points: 28
+                        created_at: '2023-09-29T06:30:58.000000Z'
+                        updated_at: '2023-09-29T07:29:19.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 39
+                        team_name:
+                          type: string
+                          example: 'RB Leipzig'
+                        key:
+                          type: string
+                          example: rb_leipzig
+                        strength:
+                          type: integer
+                          example: 78
+                        group_id:
+                          type: integer
+                          example: 4
+                        country_code:
+                          type: string
+                          example: de
+                        points:
+                          type: integer
+                          example: 28
+                        created_at:
+                          type: string
+                          example: '2023-09-29T06:30:58.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-09-29T07:29:19.000000Z'
+      tags:
+        - Simulation
+      security: []
+tags:
+  -
+    name: Group
+    description: ''
+  -
+    name: Match
+    description: ''
+  -
+    name: Simulation
+    description: ''
