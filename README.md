@@ -66,25 +66,19 @@ To get the project up and running, follow these steps:
     php artisan serve
     ```
    
-7. Install JavaScript dependencies:
+7. Install JavaScript dependencies and compile assets for development
 
    ```bash
     npm install
-    ```
-   
-8. Compile assets for development:
-
-   ```bash
     npm run dev
     ```
    
-9. Run tests
+8. Run tests
 
    ```bash
     php artisan test
     ````
-
-10. Generate API documentation
+9. Generate API documentation
 
    ```bash
    php artisan scribe:generate
