@@ -14,8 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             Teams::class,
-            Players::class,
-            Groups::class,
         ]);
     }
 }

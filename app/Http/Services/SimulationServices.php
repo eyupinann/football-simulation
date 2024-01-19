@@ -15,204 +15,128 @@ use Illuminate\Support\Facades\Hash;
 
 class SimulationServices
 {
-    public function simulateKnockoutStage($qualifiedTeams)
-    {
-        $rounds = [
-            'round_of_16' => 8,
-            'quarter_final' => 4,
-            'semi_final' => 2,
-            'final' => 1,
-        ];
-
-        $winners = [];
-
-        foreach ($rounds as $round => $matchCount) {
-            $roundWinners = [];
-
-            for ($i = 0; $i < $matchCount; $i++) {
-                if (empty($qualifiedTeams)) {
-                    break;
-                }
-
-                $homeTeamIndex = array_rand($qualifiedTeams);
-                $homeTeam = $qualifiedTeams[$homeTeamIndex];
-                unset($qualifiedTeams[$homeTeamIndex]);
-                $qualifiedTeams = array_values($qualifiedTeams);
-                if (empty($qualifiedTeams)) {
-                    break;
-                }
-                $awayTeamIndex = array_rand($qualifiedTeams);
-                $awayTeam = $qualifiedTeams[$awayTeamIndex];
-                unset($qualifiedTeams[$awayTeamIndex]);
-                $qualifiedTeams = array_values($qualifiedTeams);
-
-                $result = $this->simulateMatch($homeTeam, $awayTeam);
-                $homeGoals = $result['home_goals'];
-                $awayGoals = $result['away_goals'];
-
-                $match = Matches::create([
-                    'home_team_id' => $homeTeam['id'],
-                    'away_team_id' => $awayTeam['id'],
-                    'stage' => $round,
-                    'date' => now(),
-                ]);
-                MatchesResult::create([
-                    'match_id' => $match->id,
-                    'home_team_goals' => $homeGoals,
-                    'away_team_goals' => $awayGoals,
-                ]);
-
-                if ($homeGoals > $awayGoals) {
-                    $roundWinners[] = $homeTeam;
-                } elseif ($awayGoals > $homeGoals) {
-                    $roundWinners[] = $awayTeam;
-                } else {
-
-                }
-            }
-
-            $qualifiedTeams = $roundWinners;
-
-            $winners[$round] = $roundWinners;
-        }
-
-
-        $champion = $winners['final'];
-
-        return $champion;
-    }
-
-
     public function simulate()
     {
-        Matches::where('created_at', '<', now()->subMinute())->delete();
-        MatchesResult::where('created_at', '<', now()->subMinute())->delete();
-        $teams = Team::where('updated_at', '<', now()->subMinute())->get();
+        $matches = Matches::all();
 
-        foreach ($teams as $team) {
-            $team->points = 0;
-            $team->save();
+        foreach ($matches as $match) {
+            $homeTeam = $match->home;
+            $awayTeam = $match->away;
+
+            $homeTeamStrength = $homeTeam->strength;
+            $awayTeamStrength = $awayTeam->strength;
+
+            $homeTeamScores = $this->simulateMatch($homeTeamStrength, $awayTeamStrength);
+            $homeTeamScore = $homeTeamScores[0];
+            $awayTeamScore =  $homeTeamScores[1];
+
+            $winner = ($homeTeamScore > $awayTeamScore) ? $homeTeam->id : (($homeTeamScore < $awayTeamScore) ? $awayTeam->id : 0);
+
+
+            $matchResult = new MatchesResult([
+                'match_id' => $match->id,
+                'home_team_goals' => $homeTeamScore,
+                'away_team_goals' => $awayTeamScore,
+            ]);
+            $matchResult->save();
+
+            $this->updateTeamStats($match->home_team_id, $match->away_team_id, $winner);
         }
 
-        $groups = Group::all();
-        $qualifiedTeams = [];
-
-        $groups = Group::all();
-
-        foreach ($groups as $group) {
-            $teams = $group->teams->toArray();
-            $teamCount = count($teams);
-
-
-            for ($i = 0; $i < $teamCount - 1; $i++) {
-                for ($j = $i + 1; $j < $teamCount; $j++) {
-                    $homeTeam = $teams[$i];
-                    $awayTeam = $teams[$j];
-
-                    if (!$this->hasAlreadyPlayed($homeTeam['id'], $awayTeam['id'])) {
-                        $result1 = $this->simulateMatch($homeTeam, $awayTeam);
-                        $stage1 = 'group ' . ($group->id) . ' match';
-
-                        $match1 = Matches::create([
-                            'home_team_id' => $homeTeam['id'],
-                            'away_team_id' => $awayTeam['id'],
-                            'stage' => $stage1,
-                            'date' => now(),
-                        ]);
-
-                        MatchesResult::create([
-                            'match_id' => $match1->id,
-                            'home_team_goals' => $result1['home_goals'],
-                            'away_team_goals' => $result1['away_goals'],
-                        ]);
-
-                        $result2 = $this->simulateMatch($awayTeam, $homeTeam);
-                        $stage2 = 'group ' . ($group->id) . ' match';
-
-                        $match2 = Matches::create([
-                            'home_team_id' => $awayTeam['id'],
-                            'away_team_id' => $homeTeam['id'],
-                            'stage' => $stage2,
-                            'date' => now(),
-                        ]);
-
-                        MatchesResult::create([
-                            'match_id' => $match2->id,
-                            'home_team_goals' => $result2['home_goals'],
-                            'away_team_goals' => $result2['away_goals'],
-                        ]);
-
-                        $this->markMatchAsPlayed($homeTeam['id'], $awayTeam['id']);
-                    }
-                }
-            }
-        }
-
-
-        $qualifiedTeams = [];
-        foreach ($groups as $group) {
-            $groupQualifiedTeams = $group->getQualifiedTeams()->toArray();
-
-            $qualifiedTeams = array_merge($qualifiedTeams, $groupQualifiedTeams);
-        }
-
-        $champion = $this->simulateKnockoutStage($qualifiedTeams);
-
-        if ($champion == null) {
-            return $this->simulate();
-        }
-
-
-        return $champion;
+        $redata = Team::orderBy('points', 'desc')->get();
+        return $redata;
     }
 
-    private $playedMatches = [];
+    public function weekSimulate(){
+        $response = MatchesResult::with('match')->latest()->first();
+        if ($response == null){
+            $id = 1;
+        }else{
+            $stage = explode(' ',$response->match->stage);
+            $id = $stage[1] + 1;
+        }
+        $matches = Matches::where('stage', 'week '.$id)->get();
 
-    private function hasAlreadyPlayed($team1Id, $team2Id)
-    {
-        return in_array([$team1Id, $team2Id], $this->playedMatches) || in_array([$team2Id, $team1Id], $this->playedMatches);
+        $teams = collect();
+        foreach ($matches as $match) {
+            $homeTeam = $match->home;
+            $awayTeam = $match->away;
+            $teams->push($homeTeam, $awayTeam);
+
+            $homeTeamStrength = $homeTeam->strength;
+            $awayTeamStrength = $awayTeam->strength;
+
+            $homeTeamScores = $this->simulateMatch($homeTeamStrength, $awayTeamStrength);
+            $homeTeamScore = $homeTeamScores[0];
+            $awayTeamScore =  $homeTeamScores[1];
+
+            $winner = ($homeTeamScore > $awayTeamScore) ? $homeTeam->id : (($homeTeamScore < $awayTeamScore) ? $awayTeam->id : 0);
+
+
+            $matchResult = new MatchesResult([
+                'match_id' => $match->id,
+                'home_team_goals' => $homeTeamScore,
+                'away_team_goals' => $awayTeamScore,
+            ]);
+            $matchResult->save();
+
+            $this->updateTeamStats($match->home_team_id, $match->away_team_id, $winner);
+        }
+
+        $finalStandings = $teams->sortByDesc('points');
+
+        $redata = $finalStandings->values()->all();
+
+        return $redata;
     }
 
-    private function markMatchAsPlayed($team1Id, $team2Id)
+
+
+    private function updateTeamStats($teamId, $opponentId, $winner)
     {
-        $this->playedMatches[] = [$team1Id, $team2Id];
-    }
+        $team = Team::find($teamId);
+        $opponent = Team::find($opponentId);
 
-    public function simulateMatch($homeTeam, $awayTeam)
-    {
-
-        $homeTeamStrength = $homeTeam['strength'];
-        $awayTeamStrength = $awayTeam['strength'];
-
-        $homeTeamStrength += 1;
-
-        $awayTeamStrength -= 1;
-
-        $maxPossibleGoals = min($homeTeamStrength + $awayTeamStrength, 5);
-
-        $homeGoals = rand(0, $maxPossibleGoals);
-        $awayGoals = rand(0, $maxPossibleGoals);
-
-        $homeTeamModel = Team::find($homeTeam['id']);
-        $awayTeamModel = Team::find($awayTeam['id']);
-
-        if ($homeGoals > $awayGoals) {
-            $homeTeamModel->points += 3;
-        } elseif ($homeGoals === $awayGoals) {
-            $homeTeamModel->points += 1;
-            $awayTeamModel->points += 1;
+        if ($winner == $teamId) {
+            $team->win++;
+            $team->points += 3;
+        } elseif ($winner == 0) {
+            $team->draw++;
+            $team->points += 1;
+            $opponent->draw++;
+            $opponent->points += 1;
         } else {
-            $awayTeamModel->points += 3;
+            $team->loss++;
         }
 
-        $homeTeamModel->save();
-        $awayTeamModel->save();
 
-        return [
-            'home_goals' => $homeGoals,
-            'away_goals' => $awayGoals,
-        ];
+
+        $goalDifference = $team->goal_difference + ($team->goals_for - $team->goals_against);
+        $team->goal_difference = $goalDifference;
+        $opponent->goal_difference = -$goalDifference;
+
+        $team->save();
+        $opponent->save();
     }
+
+    private function simulateMatch($teamStrength, $opponentStrength)
+    {
+        $scoreMultiplier = 0.3;
+        $strengthDifference = $teamStrength - $opponentStrength;
+
+        $strengthDifference *= 1;
+
+        $teamScore = max(0, round($scoreMultiplier * $strengthDifference));
+        $opponentScore = max(0, round($scoreMultiplier * -$strengthDifference));
+
+        if (abs($strengthDifference) < 10 && $teamScore == 0 && $opponentScore == 0) {
+            $teamScore = rand(0, 1);
+            $opponentScore = rand(0, 1);
+        }
+
+        return [$teamScore, $opponentScore];
+    }
+
 
 
 }

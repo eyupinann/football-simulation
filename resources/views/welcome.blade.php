@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel Vue</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 </head>
 <body>
 <div id="app">
-    <groups-list></groups-list>
+    <index></index>
 </div>
 </body>
 </html>

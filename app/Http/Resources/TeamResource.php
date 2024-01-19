@@ -22,8 +22,10 @@ class TeamResource extends JsonResource
             'strength' => $this->strength,
             'country_code' => $this->country_code,
             'points' => $this->points,
-            'statistics' => $this->statistics(),
-            'players' => $this->players,
+            'win' => $this->win,
+            'draw' => $this->draw,
+            'loss' => $this->loss,
+            'goal_difference' => $this->goal_difference,
         ];
     }
 }

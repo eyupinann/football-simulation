@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Custom\Response;
 use App\Http\Repositories\MatchRepository;
 use App\Http\Resources\MatchResource;
+use App\Http\Resources\MatchResultResource;
 use App\Models\Matches;
 use App\Models\MatchesResult;
 use App\Models\Team;
@@ -33,9 +34,22 @@ class MatchController extends Controller
      * @return void
      */
     public function index(){
-        $matches = $this->matchRepository->stage();
+        $matches = $this->matchRepository->fixture();
 
         return $this->response->withData(true, "The matches listed successfully.", MatchResource::collection($matches));
+    }
+
+    /**
+     * Result Matches
+     *
+     * Get the list of matches.
+     *
+     * @return void
+     */
+    public function result(){
+        $matches = $this->matchRepository->result();
+
+        return $this->response->withData(true, "The matches resulted successfully.", MatchResultResource::collection($matches));
     }
 
 
@@ -48,6 +62,6 @@ class MatchController extends Controller
      */
     public function reset(){
         $this->matchRepository->reset();
-        return  $this->response->withOutData(true, "The matches reseted successfully.");
+        return  $this->response->withData(true, "The matches reseted successfully.", null);
     }
 }

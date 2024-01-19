@@ -4,13 +4,14 @@ namespace App\Http\Repositories;
 
 use App\Models\Group;
 use App\Http\Repositories\BaseRepository;
+use App\Models\Team;
 
-class GroupRepository extends BaseRepository
+class TeamsRepository extends BaseRepository
 {
-    public function __construct(Group $model = null)
+    public function __construct(Team $model = null)
     {
         if ($model === null) {
-            $model = new Group();
+            $model = new Team();
         }
 
         parent::__construct($model);

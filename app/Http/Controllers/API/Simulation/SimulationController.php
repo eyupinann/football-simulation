@@ -32,4 +32,19 @@ class SimulationController extends Controller
 
         return $this->response->withData(true, "The simulation was done successfully.", $result);
     }
+
+    /**
+     * Start next Simulation
+     *
+     * Get the start of simulation.
+     *
+     * @return void
+     */
+    public function next(){
+        $result =  $this->service->weekSimulate();
+
+        return $this->response->withData(true, "The simulation was done successfully.", $result);
+    }
+
+
 }
