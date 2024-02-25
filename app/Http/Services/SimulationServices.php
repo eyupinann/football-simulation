@@ -139,6 +139,4 @@ class SimulationServices
         return [$teamScore, $opponentScore];
     }
 
-
-
 }
