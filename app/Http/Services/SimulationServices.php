@@ -56,11 +56,13 @@ class SimulationServices
             $stage = explode(' ',$response->match->stage);
             $id = $stage[1] + 1;
         }
-        
+
         $matches = Matches::where('stage', 'week '.$id)->get();
 
         $teams = collect();
+
         foreach ($matches as $match) {
+
             $homeTeam = $match->home;
             $awayTeam = $match->away;
             $teams->push($homeTeam, $awayTeam);
@@ -74,12 +76,12 @@ class SimulationServices
 
             $winner = ($homeTeamScore > $awayTeamScore) ? $homeTeam->id : (($homeTeamScore < $awayTeamScore) ? $awayTeam->id : 0);
 
-
             $matchResult = new MatchesResult([
                 'match_id' => $match->id,
                 'home_team_goals' => $homeTeamScore,
                 'away_team_goals' => $awayTeamScore,
             ]);
+
             $matchResult->save();
 
             $this->updateTeamStats($match->home_team_id, $match->away_team_id, $winner);
