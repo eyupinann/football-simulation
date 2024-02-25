@@ -11,6 +11,7 @@ Before you begin, ensure you have met the following requirements:
 - PHP >= 7.4
 - Laravel CLI installed
 - Database server (e.g., MySQL) installed
+- Docker installed (optional)
 
 ## Used Packages
 
