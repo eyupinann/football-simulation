@@ -15,6 +15,16 @@ class MatchResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'home_team_id' => $this->home_team_id,
+            'away_team_id' => $this->away_team_id,
+            'home_team' => $this->home->team_name,
+            'away_team' => $this->away->team_name,
+            'stage' => $this->stage,
+            'date' => $this->date,
+            'home' => $this->home,
+            'away' => $this->away,
+        ];
     }
 }
