@@ -49,12 +49,14 @@ class SimulationServices
 
     public function weekSimulate(){
         $response = MatchesResult::with('match')->latest()->first();
+
         if ($response == null){
             $id = 1;
         }else{
             $stage = explode(' ',$response->match->stage);
             $id = $stage[1] + 1;
         }
+        
         $matches = Matches::where('stage', 'week '.$id)->get();
 
         $teams = collect();
