@@ -111,8 +111,6 @@ class SimulationServices
             $team->loss++;
         }
 
-
-
         $goalDifference = $team->goal_difference + ($team->goals_for - $team->goals_against);
         $team->goal_difference = $goalDifference;
         $opponent->goal_difference = -$goalDifference;
