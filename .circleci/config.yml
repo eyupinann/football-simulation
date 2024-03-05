@@ -1,0 +1,94 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  code-lint:
+    name: "Lint Codebase"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: PHP-Lint-Application
+        run: composer install && parallel-lint --exclude vendor .
+
+  check:
+    name: "Check Codebase"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Var-Dump-Check-Checker
+        run: composer install && var-dump-check --laravel --exclude vendor ./app/
+
+      - name: Code-Style-Check
+        run: composer install && phpcs --extensions=php --standard=PSR2 app/
+
+  test:
+    name: "Run Tests"
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0.4
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: testing
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: "Waiting for MySQL to be ready"
+        run: |
+          for i in `seq 1 20`;
+          do
+            nc -z 127.0.0.1 3306 && echo Success && exit 0
+            echo -n .
+            sleep 1
+          done
+          echo Failed waiting for MySQL && exit 1
+
+      - name: "Prepare Environment"
+        run: sudo mkdir -p /var/www/media && sudo chmod -R 777 /var/www/media
+
+      - name: "Create Environment file"
+        run: mv .env-testing .env
+
+      - name: Install Dependencies
+        run: composer install -n --prefer-dist
+
+      - name: Generate API Doc
+        run: composer generate-api-doc
+
+      - name: Initialize Test Data
+        run: composer initialize-tests
+
+      - name: Unittests
+        run: composer unit-test
+
+      - name: Feature Tests
+        run: composer feature-test
+
+      - name: API Test
+        run: composer api-test
